@@ -1,0 +1,59 @@
+<Window xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="using:CoinFlip"
+		x:Class="CoinFlip.MainWindow"
+		Width="360"
+		Height="500"
+		MinWidth="360"
+		MinHeight="500"
+		Background="#1E1E1E"
+		Foreground="White"
+		Title="Coin Flipper"
+		WindowStartupLocation="CenterScreen">
+  <Grid RowDefinitions="Auto,Auto,*,Auto,Auto,Auto" Margin="24">
+	<StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+	  <TextBlock Text="Best of" VerticalAlignment="Center" />
+		<TextBlock x:Name="bestOfIndicator"
+				 Foreground="#D2D2D2"
+				 VerticalAlignment="Center" />
+	  <NumericUpDown x:Name="bestOfNumericUpDown"
+					 Width="70"
+					  Height="32"
+					 Minimum="1"
+					 Maximum="99"
+					  Value="3"
+					 ShowButtonSpinner="True"
+					 Background="#2D2D30"
+					 Foreground="White"
+					 BorderBrush="#707070"
+					 HorizontalContentAlignment="Center" />
+	</StackPanel>
+
+	<CheckBox x:Name="soundCheckBox"
+			  Grid.Row="1"
+			  Margin="0,14,0,8"
+			  IsChecked="True"
+			  Content="Enable Sound" />
+
+	<Border Grid.Row="2" Background="#1E1E1E" CornerRadius="8" Padding="4">
+	  <local:CoinCanvas x:Name="coinCanvas" />
+	</Border>
+
+	<TextBlock x:Name="resultLabel"
+			   Grid.Row="3"
+			   Margin="0,12,0,0"
+			   FontSize="16"
+			   HorizontalAlignment="Center"
+			   Text="Press Flip" />
+	<TextBlock x:Name="scoreLabel"
+			   Grid.Row="4"
+			   Margin="0,6,0,0"
+			   Foreground="#D2D2D2"
+			   HorizontalAlignment="Center" />
+
+	<StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="16" Margin="0,16,0,0">
+	  <Button x:Name="resetButton" Width="100" Content="Reset" />
+	  <Button x:Name="flipButton" Width="100" Content="Flip" />
+	</StackPanel>
+  </Grid>
+</Window>
